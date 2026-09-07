@@ -1,0 +1,5 @@
+.background { position:absolute; inset:0; overflow:hidden; pointer-events:none; background:linear-gradient(135deg,var(--color-background),var(--color-surface)); }
+.background::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 16% 12%,rgba(255,255,255,.8),transparent 28%),radial-gradient(circle at 82% 78%,rgba(216,154,166,.18),transparent 30%); }
+.haloOne,.haloTwo { position:absolute; width:clamp(16rem,40vw,35rem); aspect-ratio:1; border-radius:50%; filter:blur(24px); opacity:.38; animation:gradient-drift 16s ease-in-out infinite alternate; }
+.haloOne { top:-14%; right:-12%; background:var(--color-pink); }.haloTwo { bottom:-18%; left:-14%; background:var(--color-gold); animation-delay:-7s; }
+.grain { position:absolute; inset:0; opacity:.12; background-image:repeating-radial-gradient(circle at 20% 40%,rgba(82,46,43,.2) 0 1px,transparent 1px 4px); mix-blend-mode:soft-light; }

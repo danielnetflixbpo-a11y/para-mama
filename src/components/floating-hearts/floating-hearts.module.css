@@ -1,0 +1,4 @@
+.decorations { position:absolute; inset:0; overflow:hidden; pointer-events:none; }.item { position:absolute; color:var(--color-primary); opacity:.55; text-shadow:0 4px 14px rgba(112,46,62,.14); }
+.heartOne { top:16%; left:8%; font-size:1rem; animation:float-heart 8s ease-in-out infinite; }.heartTwo { top:62%; right:9%; font-size:1.45rem; animation:float-heart 10s ease-in-out -3s infinite; }.heartThree { top:27%; right:7%; font-size:.75rem; animation:float-heart 7s ease-in-out -5s infinite; }
+.sparkOne { top:12%; left:28%; color:var(--color-gold-deep); animation:sparkle 4s ease-in-out infinite; }.sparkTwo { top:73%; left:13%; font-size:.7rem; animation:sparkle 5s ease-in-out -2s infinite; }.sparkThree { top:43%; right:18%; color:var(--color-gold-deep); animation:sparkle 4.5s ease-in-out -1s infinite; }
+@media (min-width:700px) { .heartOne{left:15%}.heartTwo{right:16%}.heartThree{right:14%} }
