@@ -1,0 +1,12 @@
+"use client";
+import { useCallback, useState } from "react";
+import { content } from "@/data/content";
+import { useRevealOnScroll } from "@/hooks/use-reveal-on-scroll";
+import { ImpossibleLoveButton } from "@/components/impossible-love-button/impossible-love-button";
+import { GrowingHeartGame } from "@/components/growing-heart-game/growing-heart-game";
+import { SecretMessageBox } from "@/components/secret-message-box/secret-message-box";
+import { PhaseFourClosing } from "@/components/phase-four-closing/phase-four-closing";
+import { FinalExperience } from "@/components/final-experience/final-experience";
+import styles from "./phase-four-experience.module.css";
+export type PhaseFourProgress={impossibleButtonCompleted:boolean;heartCompleted:boolean;secretMessagesCompleted:boolean};
+export function PhaseFourExperience(){const [progress,setProgress]=useState<PhaseFourProgress>({impossibleButtonCompleted:false,heartCompleted:false,secretMessagesCompleted:false});const [finalRequested,setFinalRequested]=useState(false);const {ref,visible}=useRevealOnScroll<HTMLElement>();const count=Object.values(progress).filter(Boolean).length;const mark=useCallback((key:keyof PhaseFourProgress)=>setProgress((current)=>current[key]?current:{...current,[key]:true}),[]);const completeImpossible=useCallback(()=>mark("impossibleButtonCompleted"),[mark]);const completeHeart=useCallback(()=>mark("heartCompleted"),[mark]);const completeSecrets=useCallback(()=>mark("secretMessagesCompleted"),[mark]);const enterFinal=()=>{setFinalRequested(true);document.getElementById("mensaje-final")?.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});};return <><section id="juegos-para-mama" ref={ref} className={`${styles.section} ${visible?styles.visible:""}`} aria-labelledby="games-title" tabIndex={-1}><header><p>{content.phaseFour.bridge.eyebrow}</p><h2 id="games-title">{content.phaseFour.bridge.heading}</h2><span>{content.phaseFour.bridge.description}</span><div className={styles.overall} aria-live="polite">{count} de 3 {content.phaseFour.progressLabel}</div></header><div className={styles.games}><ImpossibleLoveButton onComplete={completeImpossible}/><GrowingHeartGame onComplete={completeHeart}/><SecretMessageBox onComplete={completeSecrets}/></div><PhaseFourClosing complete={count===3} onEnter={enterFinal}/></section><FinalExperience unlocked={count===3} requested={finalRequested}/></>;}

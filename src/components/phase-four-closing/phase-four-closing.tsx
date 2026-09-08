@@ -1,0 +1,4 @@
+"use client";
+import { content } from "@/data/content";
+import styles from "./phase-four-closing.module.css";
+export function PhaseFourClosing({ complete,onEnter }: { complete: boolean; onEnter: () => void }) { return <section className={`${styles.section} ${complete?styles.complete:""}`} aria-labelledby="phase-four-closing"><p>{content.phaseFour.closing.eyebrow}</p><span aria-hidden="true">♥</span><h2 id="phase-four-closing">{content.phaseFour.closing.heading}</h2><div>{complete?content.phaseFour.closing.description:content.phaseFour.closing.lockedDescription}</div><button type="button" disabled={!complete} aria-disabled={!complete} onClick={onEnter} title={complete?undefined:content.phaseFour.closing.unavailableHint}>{complete?content.final.unlockLabel:content.phaseFour.closing.label}</button></section>; }
