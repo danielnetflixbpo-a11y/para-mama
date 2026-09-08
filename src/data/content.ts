@@ -13,6 +13,7 @@ export const content: SiteContent = {
     scrollLabel: "Descubrí lo que viene",
     photoPlaceholderLabel: "Un recuerdo por llegar",
     photoPlaceholderHint: "Agregá una foto en public/photos para hacer este rincón aún más tuyo.",
+    photo: { imageSrc: "/photos/mama-01.jpeg", imageAlt: "Una mujer sonríe mientras un niño la abraza y le da un beso en la mejilla.", objectPosition: "50% 62%" },
     replayLabel: "Volver a ver la bienvenida",
   },
   intro: {

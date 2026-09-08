@@ -27,6 +27,7 @@ export type SiteContent = {
     scrollLabel: string;
     photoPlaceholderLabel: string;
     photoPlaceholderHint: string;
+    photo: { imageSrc: string; imageAlt: string; objectPosition: string };
     replayLabel: string;
   };
   preview: { heading: string; cards: PreviewCard[]; closingNote: string };
